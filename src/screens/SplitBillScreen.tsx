@@ -43,7 +43,8 @@ export const SplitBillScreen: React.FC<SplitBillScreenProps> = ({ navigation, ro
   };
 
   const toggleContact = (contact: Contact) => {
-    if (selectedContacts.find((c: any) => c.id === contact.id)) {
+    const isSelected = selectedContacts.some((c: any) => c.id === contact.id);
+    if (isSelected) {
       setSelectedContacts(selectedContacts.filter((c: any) => c.id !== contact.id));
     } else {
       setSelectedContacts([...selectedContacts, contact]);
@@ -133,7 +134,7 @@ export const SplitBillScreen: React.FC<SplitBillScreenProps> = ({ navigation, ro
           >
             <Card style={[
               styles.contactCard,
-              selectedContacts.find((c: any) => c.id === contact.id) && styles.selectedCard
+              selectedContacts.some((c: any) => c.id === contact.id) && styles.selectedCard
             ]}>
               <View style={styles.contactInfo}>
                 <Text style={styles.contactName}>{contact.name}</Text>
@@ -143,7 +144,7 @@ export const SplitBillScreen: React.FC<SplitBillScreenProps> = ({ navigation, ro
                   </Text>
                 )}
               </View>
-              {selectedContacts.find((c: any) => c.id === contact.id) && (
+              {selectedContacts.some((c: any) => c.id === contact.id) && (
                 <Text style={styles.checkmark}>✓</Text>
               )}
             </Card>
