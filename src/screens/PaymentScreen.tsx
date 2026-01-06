@@ -15,7 +15,7 @@ interface PaymentScreenProps {
 export const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation, route }) => {
   const { billId } = route.params;
   const [participants, setParticipants] = useState<BillParticipant[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, _setLoading] = useState(true);
 
   useEffect(() => {
     loadParticipants();
@@ -28,7 +28,7 @@ export const PaymentScreen: React.FC<PaymentScreenProps> = ({ navigation, route 
     } catch (error) {
       console.error('Error loading participants:', error);
     } finally {
-      setLoading(false);
+      _setLoading(false);
     }
   };
 
