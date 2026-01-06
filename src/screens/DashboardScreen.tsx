@@ -13,10 +13,10 @@ interface DashboardScreenProps {
 }
 
 export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) => {
-  const user = useAuthStore((state: any) => state.user);
-  const bills = useBillStore((state: any) => state.bills);
-  const setBills = useBillStore((state: any) => state.setBills);
-  const [loading, setLoading] = useState(true);
+  const user = useAuthStore((state) => state.user);
+  const bills = useBillStore((state) => state.bills);
+  const setBills = useBillStore((state) => state.setBills);
+  const [loading, _setLoading] = useState(true);
   const [participants, setParticipants] = useState<BillParticipant[]>([]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
     } catch (error) {
       console.error('Error loading bills:', error);
     } finally {
-      setLoading(false);
+      _setLoading(false);
     }
   };
 
@@ -74,7 +74,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
               <Text style={styles.emptyText}>No bills yet. Create your first one!</Text>
             </Card>
           ) : (
-            bills.map((bill: any) => (
+            bills.map((bill) => (
               <TouchableOpacity
                 key={bill.id}
                 onPress={() => navigation.navigate('Payment', { billId: bill.id })}
