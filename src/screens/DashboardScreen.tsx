@@ -4,8 +4,9 @@ import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { useAuthStore } from '../store/authStore';
 import { useBillStore } from '../store/billStore';
-import { getBillsByUser } from '../api/firebase';
-import { formatCurrency, formatDate } from '../utils/helpers';
+import { getBillsByUser, getParticipantsByBill } from '../api/firebase';
+import { formatCurrency, formatDate, calculateTotalOwed, calculateTotalOwedToYou } from '../utils/helpers';
+import { BillParticipant } from '../types';
 
 interface DashboardScreenProps {
   navigation: any;
@@ -16,6 +17,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
   const bills = useBillStore((state: any) => state.bills);
   const setBills = useBillStore((state: any) => state.setBills);
   const [loading, setLoading] = useState(true);
+  const [participants, setParticipants] = useState<BillParticipant[]>([]);
 
   useEffect(() => {
     loadBills();
@@ -26,6 +28,14 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
     try {
       const userBills = await getBillsByUser(user.id);
       setBills(userBills);
+
+      // Load all participants for calculating totals
+      const allParticipants: BillParticipant[] = [];
+      for (const bill of userBills) {
+        const billParticipants = await getParticipantsByBill(bill.id);
+        allParticipants.push(...billParticipants);
+      }
+      setParticipants(allParticipants);
     } catch (error) {
       console.error('Error loading bills:', error);
     } finally {
@@ -33,8 +43,8 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
     }
   };
 
-  const totalOwed = 0; // TODO: Calculate from participants
-  const totalOwedToYou = 0; // TODO: Calculate from participants
+  const totalOwed = calculateTotalOwed(participants, user?.id || '');
+  const totalOwedToYou = calculateTotalOwedToYou(participants, user?.id || '', bills);
 
   return (
     <View style={styles.container}>
@@ -49,7 +59,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
             <Text style={styles.summaryLabel}>You Owe</Text>
             <Text style={styles.summaryAmount}>{formatCurrency(totalOwed)}</Text>
           </Card>
-          
+
           <Card style={[styles.summaryCard, styles.owedToYouCard]}>
             <Text style={styles.summaryLabel}>Owed to You</Text>
             <Text style={styles.summaryAmount}>{formatCurrency(totalOwedToYou)}</Text>
@@ -58,7 +68,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Recent Bills</Text>
-          
+
           {bills.length === 0 ? (
             <Card>
               <Text style={styles.emptyText}>No bills yet. Create your first one!</Text>
@@ -67,7 +77,7 @@ export const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) 
             bills.map((bill: any) => (
               <TouchableOpacity
                 key={bill.id}
-                onPress={() => navigation.navigate('BillDetails', { billId: bill.id })}
+                onPress={() => navigation.navigate('Payment', { billId: bill.id })}
               >
                 <Card style={styles.billCard}>
                   <View style={styles.billHeader}>
