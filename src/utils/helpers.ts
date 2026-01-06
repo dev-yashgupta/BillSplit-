@@ -17,7 +17,7 @@ export const calculateTotalOwedToYou = (participants: any[], userId: string, bil
   const yourBillIds = yourBills.map((b: any) => b.id);
   
   return participants
-    .filter((p: any) => yourBillIds.indexOf(p.billId) !== -1 && p.userId !== userId && p.status === 'unpaid')
+    .filter((p: any) => yourBillIds.includes(p.billId) && p.userId !== userId && p.status === 'unpaid')
     .reduce((sum: number, p: any) => sum + p.amountToPay, 0);
 };
 
