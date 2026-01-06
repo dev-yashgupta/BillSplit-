@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, Alert } from 'react-native';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 import { Button } from '../components/Button';
 import { signInWithGoogle } from '../api/firebase';
 import { useAuthStore } from '../store/authStore';
 
 export const LoginScreen = () => {
-  const [loading, setLoading] = useState(false);
-  const setUser = useAuthStore(state => state.setUser);
+  const [loading, _setLoading] = useState(false);
+  const setUser = useAuthStore((state) => state.setUser);
 
   const handleGoogleSignIn = async () => {
-    setLoading(true);
+    _setLoading(true);
     try {
       const user = await signInWithGoogle();
       setUser(user);
     } catch (error: any) {
       Alert.alert('Login Failed', error.message);
     } finally {
-      setLoading(false);
+      _setLoading(false);
     }
   };
 
