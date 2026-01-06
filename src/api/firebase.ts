@@ -54,7 +54,7 @@ export const signOut = async () => {
 };
 
 export const onAuthChange = (callback: (user: User | null) => void) => {
-  return onAuthStateChanged(auth, async (firebaseUser: any) => {
+  return onAuthStateChanged(auth, async (firebaseUser) => {
     if (firebaseUser) {
       const user = await getUserById(firebaseUser.uid);
       callback(user);
@@ -137,7 +137,7 @@ export const getBillsByUser = async (userId: string): Promise<Bill[]> => {
   const q = query(billsRef, where('createdBy', '==', userId));
   const snapshot = await getDocs(q);
 
-  return snapshot.docs.map((doc: any) => ({
+  return snapshot.docs.map((doc) => ({
     ...doc.data(),
     id: doc.id,
     createdAt: doc.data().createdAt.toDate(),
@@ -159,7 +159,7 @@ export const getParticipantsByBill = async (billId: string): Promise<BillPartici
   const q = query(participantsRef, where('billId', '==', billId));
   const snapshot = await getDocs(q);
 
-  return snapshot.docs.map((doc: any) => ({
+  return snapshot.docs.map((doc) => ({
     ...doc.data(),
     id: doc.id,
   })) as BillParticipant[];
@@ -188,7 +188,7 @@ export const getGroupsByUser = async (userId: string): Promise<Group[]> => {
   const q = query(groupsRef, where('members', 'array-contains', userId));
   const snapshot = await getDocs(q);
 
-  return snapshot.docs.map((doc: any) => ({
+  return snapshot.docs.map((doc) => ({
     ...doc.data(),
     id: doc.id,
     createdAt: doc.data().createdAt.toDate(),
