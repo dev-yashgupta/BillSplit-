@@ -35,7 +35,7 @@ export const openUPIPayment = async (params: UPIPaymentParams): Promise<boolean>
 };
 
 // For Razorpay integration (Phase 2)
-export const createRazorpayOrder = async (amount: number, userId: string) => {
+export const createRazorpayOrder = async (_amount: number, _userId: string) => {
     // TODO: Implement Razorpay order creation via Cloud Function
     throw new Error('Razorpay integration not implemented yet');
 };
