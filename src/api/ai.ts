@@ -23,9 +23,9 @@ export const extractBillData = async (imageUrl: string): Promise<OCRResult> => {
  * FREE Mock function - Works without any paid APIs
  * This simulates bill extraction for testing
  */
-export const mockExtractBillData = async (imageUrl: string): Promise<OCRResult> => {
+export const mockExtractBillData = async (_imageUrl: string): Promise<OCRResult> => {
   // Simulate processing delay
-  await new Promise((resolve: any) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1500));
   
   // Generate realistic mock data
   const mockBills = [
