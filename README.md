@@ -177,8 +177,8 @@ billsplit-plus/
 
 ### Dashboard
 
-- ✅ "You Owe" summary
-- ✅ "Owed to You" summary
+- ✅ "You Owe" summary.
+- ✅ "Owed to You" summary.
 - ✅ Recent bills list
 - ✅ Payment status tracking
 
