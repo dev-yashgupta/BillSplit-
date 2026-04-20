@@ -17,6 +17,7 @@ Snap. Split. Pay. In under a minute.
 BillSplit+ is a production-ready mobile app that uses AI to automatically split bills among friends. Just take a photo of any bill, and the app handles the rest—extracting amounts, splitting costs, and generating UPI payment links.
 
 ### 🆓 100% FREE Version Available!
+
 - ✅ No paid APIs required
 - ✅ No credit card needed
 - ✅ Works with Firebase FREE tier
@@ -50,7 +51,7 @@ npm install
 npx expo start
 ```
 
-📖 **FREE Setup Guide**: [QUICKSTART_FREE.md](QUICKSTART_FREE.md) (No paid APIs!)  
+📖 **FREE Setup Guide**: [QUICKSTART_FREE.md](QUICKSTART_FREE.md) (No paid APIs!)
 📖 **Full Setup Guide**: [QUICKSTART.md](QUICKSTART.md) (With Cloud Functions)
 
 ---
@@ -58,47 +59,54 @@ npx expo start
 ## 📚 Documentation
 
 ### Getting Started
-- 📖 [INDEX.md](INDEX.md) - Complete documentation index
-- 🚀 [QUICKSTART.md](QUICKSTART.md) - 15-minute setup guide
-- 📦 [INSTALLATION.md](INSTALLATION.md) - Installation instructions
-- 🎯 [GET_STARTED.md](GET_STARTED.md) - Role-based onboarding
-- 📊 [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md) - Comprehensive overview
+
+- 📖 [INDEX.md](INDEX.md) - Complete documentation index.
+- 🚀 [QUICKSTART.md](QUICKSTART.md) - 15-minute setup guide.
+- 📦 [INSTALLATION.md](INSTALLATION.md) - Installation instructions.
+- 🎯 [GET_STARTED.md](GET_STARTED.md) - Role-based onboarding.
+- 📊 [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md) - Comprehensive overview.
 
 ### Technical Documentation
-- 🏗️ [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) - System design
-- 🔧 [docs/SETUP.md](docs/SETUP.md) - Detailed setup
-- 📡 [docs/API.md](docs/API.md) - API reference
-- 🧪 [docs/TESTING.md](docs/TESTING.md) - Testing guide
-- 🚢 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) - Deployment guide
+
+- 🏗️ [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) - System design.
+- 🔧 [docs/SETUP.md](docs/SETUP.md) - Detailed setup.
+- 📡 [docs/API.md](docs/API.md) - API reference.
+- 🧪 [docs/TESTING.md](docs/TESTING.md) - Testing guide.
+- 🚢 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) - Deployment guide.
 
 ### Planning & Process
-- 🗺️ [ROADMAP.md](ROADMAP.md) - Feature roadmap
-- 📝 [CHANGELOG.md](CHANGELOG.md) - Version history
-- 🤝 [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
-- ✅ [SETUP_CHECKLIST.md](SETUP_CHECKLIST.md) - Setup verification
-- ❓ [FAQ.md](FAQ.md) - 50+ common questions
+
+- 🗺️ [ROADMAP.md](ROADMAP.md) - Feature roadmap.
+- 📝 [CHANGELOG.md](CHANGELOG.md) - Version history.
+- 🤝 [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines.
+- ✅ [SETUP_CHECKLIST.md](SETUP_CHECKLIST.md) - Setup verification.
+- ❓ [FAQ.md](FAQ.md) - 50+ common questions.
 
 ---
 
 ## 🛠️ Tech Stack
 
 **Frontend**
+
 - React Native 0.74 + Expo 51
 - TypeScript 5.3
 - Zustand (State Management)
 - React Navigation
 
 **Backend**
+
 - Firebase Authentication
 - Cloud Firestore
 - Cloud Storage
 - Cloud Functions (Node.js)
 
 **AI/ML**
+
 - Google Cloud Vision API (OCR)
 - OpenAI GPT-4 (Parsing)
 
 **Payments**
+
 - UPI Deep Links
 - Razorpay (Phase 2)
 
@@ -133,17 +141,20 @@ billsplit-plus/
 ## ✅ Features Implemented (MVP)
 
 ### Authentication
+
 - ✅ Google Sign-In
 - ✅ User profile management
 - ✅ Session persistence
 
 ### Bill Upload
+
 - ✅ Camera capture
 - ✅ Gallery selection
 - ✅ Firebase Storage upload
 - ✅ Image preview
 
 ### AI-Powered OCR
+
 - ✅ Google Cloud Vision text extraction
 - ✅ OpenAI structured parsing
 - ✅ Automatic amount detection
@@ -151,18 +162,21 @@ billsplit-plus/
 - ✅ Tax & tip extraction
 
 ### Smart Splitting
+
 - ✅ Contact selection from phone
 - ✅ Equal split calculation
 - ✅ Real-time amount preview
 - ✅ Multiple participants support
 
 ### UPI Payments
+
 - ✅ UPI deep link generation
 - ✅ One-tap payment initiation
 - ✅ Payment link sharing
 - ✅ Manual payment tracking
 
 ### Dashboard
+
 - ✅ "You Owe" summary
 - ✅ "Owed to You" summary
 - ✅ Recent bills list
@@ -173,27 +187,32 @@ billsplit-plus/
 ## 🗺️ Roadmap
 
 ### Phase 1: MVP ✅ (Complete)
+
 Core features implemented and tested
 
 ### Phase 2: Enhanced (Weeks 3-4)
+
 - Groups feature
 - Razorpay integration
 - Push notifications
 - Custom split amounts
 
 ### Phase 3: Premium (Weeks 5-6)
+
 - PDF exports
 - Advanced analytics
 - Social features
 - Premium tier
 
 ### Phase 4: Scale (Weeks 7-8)
+
 - Dark mode
 - Localization
 - Performance optimization
 - 50K+ users
 
 ### Phase 5: Monetization (Weeks 9-10)
+
 - Premium subscriptions
 - Business tier
 - Revenue generation
@@ -205,6 +224,7 @@ Core features implemented and tested
 ## 🎓 Learning Value
 
 This project demonstrates:
+
 - ✅ React Native best practices
 - ✅ TypeScript usage
 - ✅ Firebase integration
@@ -221,6 +241,7 @@ This project demonstrates:
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### Areas for Contribution
+
 - Razorpay integration
 - SMS/Email reminders
 - Group management UI
@@ -250,12 +271,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🆘 Support
 
 ### Get Help
+
 - 📖 Read [FAQ.md](FAQ.md)
 - 🐛 Report issues on GitHub
 - 💬 Join Discord (coming soon)
 - 📧 Email: support@billsplitplus.com (TBD)
 
 ### Stay Updated
+
 - ⭐ Star this repo
 - 🐦 Follow on Twitter (TBD)
 - 📰 Read blog posts (TBD)
@@ -273,8 +296,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ for the developer community**
 
-**Status**: ✅ Production-Ready  
-**Version**: 1.0.0 MVP  
+**Status**: ✅ Production-Ready
+**Version**: 1.0.0 MVP
 **Last Updated**: January 2025
 
 ---
